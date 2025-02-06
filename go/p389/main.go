@@ -1,20 +1,32 @@
 package leetcode
 
-func findTheDifference(s string, t string) byte {
-    for i:=0; i<len(t); i++ {
-        has_match := false
-        for j:=0; j<len(s); j++ {
-            if t[i] == s[j] {
-                has_match = true
-            }
-        }
+type CharCount struct {
+    S int
+    T int
+}
 
-        if !has_match {
-            return t[i]
+func findTheDifference(s string, t string) byte {
+    charHistogram := make(map[byte]CharCount)
+    i:=0
+    for ; i<len(t); i++ {
+        h := charHistogram[t[i]]
+        h.T += 1
+        charHistogram[t[i]] = h
+
+        if i < len(s) {
+            h = charHistogram[s[i]]
+            h.S += 1
+            charHistogram[s[i]] = h
         }
     }
 
-    // this should be dead code, but required for compilation
-    // constraints of problem guarantee the return will be executed in above for-loop
-    return t[0]
+    var out byte
+    for key, value := range charHistogram {
+        if value.S != value.T {
+            out = key
+            break
+        }
+    }
+
+    return out
 }
