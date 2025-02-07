@@ -55,3 +55,16 @@ func TestCase4(t *testing.T) {
         t.Fatalf("Case 4 failed: (%v,%v)", actual, expected)
     }
 }
+
+func TestCase5(t *testing.T) {
+    a := "mississippi"
+    b := "issipi"
+
+    expected := -1
+
+    actual := strStr(a,b)
+
+    if actual != expected {
+        t.Fatalf("Case 5 failed: (%v,%v)", actual, expected)
+    }
+}
