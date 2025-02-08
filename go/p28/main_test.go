@@ -68,3 +68,30 @@ func TestCase5(t *testing.T) {
         t.Fatalf("Case 5 failed: (%v,%v)", actual, expected)
     }
 }
+
+func TestCase6(t *testing.T) {
+    a := "mississippi"
+    b := "pi"
+
+    expected := 9
+
+    actual := strStr(a,b)
+
+    if actual != expected {
+        t.Fatalf("Case 6 failed: (%v,%v)", actual, expected)
+    }
+}
+
+func TestCase7(t *testing.T) {
+    a := "ababbbbaaabbbaaa"
+    b := "bbbb"
+
+    expected := 3
+
+    actual := strStr(a,b)
+
+    if actual != expected {
+        t.Fatalf("Case 7 failed: (%v,%v)", actual, expected)
+    }
+}
+
