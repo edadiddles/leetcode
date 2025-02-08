@@ -27,3 +27,15 @@ func TestCase2(t *testing.T) {
         t.Fatalf("Test Case 2 failed: (%v,%v)", actual, expected)
     }
 }
+
+func TestCase3(t *testing.T) {
+    a := "xyznagaram"
+    b := "proanagram"
+
+    expected := false
+    actual := isAnagram(a,b)
+
+    if actual != expected {
+        t.Fatalf("Test Case 2 failed: (%v,%v)", actual, expected)
+    }
+}

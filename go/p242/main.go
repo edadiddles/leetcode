@@ -1,15 +1,29 @@
 package leetcode
 
+type charCount struct {
+    A int
+    B int
+}
+
 func isAnagram(s string, t string) bool {
     if len(s) != len(t) {
         return false
     }
 
-    s = bubbleSort([]byte(s))
-    t = bubbleSort([]byte(t))
+    counts := make(map[byte]charCount)
+
 
     for i:=0; i < len(s); i++ {
-        if s[i] != t[i] {
+        c := counts[s[i]]
+        c.A += 1
+        counts[s[i]] = c
+        c = counts[t[i]]
+        c.B += 1
+        counts[t[i]] = c
+    }
+
+    for _, value := range counts {
+        if value.A != value.B {
             return false
         }
     }
