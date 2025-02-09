@@ -37,3 +37,14 @@ func TestCase3(t *testing.T) {
         t.Fatalf("Test Case 3 failed: (%v,%v)", actual, expected)
     }
 }
+
+func TestCase4(t *testing.T) {
+    digits := []int{8,9,9,9}
+    
+    expected := []int{9,0,0,0}
+    actual := plusOne(digits)
+
+    if !slices.Equal(actual, expected) {
+        t.Fatalf("Test Case 4 failed: (%v,%v)", actual, expected)
+    }
+}

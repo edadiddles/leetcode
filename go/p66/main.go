@@ -12,7 +12,8 @@ func plusOne(digits []int) []int {
 
     i := len(digits)-1
     for ; i > 0; i-- {
-        if carry && digits[i-1] == 9 {
+        if carry {
+            carry = false
             if digits[i-1] == 9 {
                 carry=true
             } else {
