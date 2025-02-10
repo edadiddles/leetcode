@@ -25,3 +25,14 @@ func TestCase2(t *testing.T) {
         t.Fatalf("Failed: (%v, %v)", actual, expected)
     }
 }
+
+func TestCase3(t *testing.T) {
+    arr := []int{-68,-96,-12,-40,16}
+    expected := true
+
+    actual := canMakeArithmeticProgression(arr)
+
+    if actual != expected {
+        t.Fatalf("Failed: (%v, %v)", actual, expected)
+    }
+}
