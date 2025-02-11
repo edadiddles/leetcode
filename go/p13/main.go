@@ -4,6 +4,11 @@ func romanToInt(s string) int {
     sum := 0
 
     prev := resolveRoman(s[0])
+
+    if len(s) == 1 {
+        return prev
+    }
+
     next := 0
     for i:=1; i < len(s); i++ {
         next = resolveRoman(s[i])
