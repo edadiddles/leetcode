@@ -36,3 +36,14 @@ func TestCase3(t *testing.T) {
         t.Fatalf("Failed: (%v,%v)", actual, expected)
     }
 }
+
+func TestCase4(t *testing.T) {
+    nums := []int{2,2,2,1,4,5}
+    expected := false
+
+    actual := isMonotonic(nums)
+
+    if actual != expected {
+        t.Fatalf("Failed: (%v,%v)", actual, expected)
+    }
+}
