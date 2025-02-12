@@ -1,21 +1,20 @@
 package leetcode
 
 func judgeCircle(moves string) bool {
-    x := 0
-    y := 0
+    pos := [2]int{ 0,0 }
 
     for i:=0; i < len(moves); i++ {
         switch moves[i] {
         case 'U':
-            y++
+            pos[1]++
         case 'D':
-            y--
+            pos[1]--
         case 'L':
-            x--
+            pos[0]--
         case 'R':
-            x++
+            pos[0]++
         }
     }
 
-    return x == 0 && y == 0
+    return pos[0] == 0 && pos[1] == 0
 }
