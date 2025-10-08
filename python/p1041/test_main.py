@@ -14,3 +14,7 @@ def test2():
 def test3():
     soln = Solution()
     assert soln.isRobotBounded("GL")
+
+def test4():
+    soln = Solution()
+    assert soln.isRobotBounded("GLRLLGLL")

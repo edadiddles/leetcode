@@ -9,13 +9,10 @@ class Solution:
                 pos = [pos[i] + d for i, d in enumerate(dir)]
             elif instruction == "L":
                 dir = [-dir[1], dir[0]]
-                print(f"changing dir: {dir}")
             elif instruction == "R":
                 dir = [dir[1], -dir[0]]
-                print(f"changing dir: {dir}")
 
-        if init_dir == dir:
-            print(f"init_dir: {init_dir} -- dir: {dir}")
+        if init_dir == dir and pos != [0, 0]:
             return False
 
         return True
