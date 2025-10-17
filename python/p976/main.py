@@ -14,7 +14,7 @@ class Solution:
                     c = nums[k]
 
                     perimeter = a+b+c
-                    if c > a and c < a+b and max_perimeter < perimeter:
+                    if c >= a and c < a+b and max_perimeter < perimeter:
                         max_perimeter = perimeter
 
         return max_perimeter
