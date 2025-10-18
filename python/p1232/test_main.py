@@ -9,3 +9,8 @@ def test1():
 def test2():
     soln = Solution()
     assert soln.checkStraightLine([[1,1], [2,2], [3,4], [4,5], [5,6], [7,7]]) == False
+
+
+def test3():
+    soln = Solution()
+    assert soln.checkStraightLine([[0,0], [0,1], [0,-1]]) == True
