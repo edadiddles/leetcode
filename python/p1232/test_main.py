@@ -19,3 +19,8 @@ def test3():
 def test4():
     soln = Solution()
     assert soln.checkStraightLine([[-2,12],[2,-8],[6,-28],[-10,52],[-7,37],[4,-18],[7,-33],[1,-3],[-1,7],[8,-38]]) == True
+
+
+def test5():
+    soln = Solution()
+    assert soln.checkStraightLine([[1,-8],[2,-3],[1,2]]) == False
