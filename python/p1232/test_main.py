@@ -24,3 +24,8 @@ def test4():
 def test5():
     soln = Solution()
     assert soln.checkStraightLine([[1,-8],[2,-3],[1,2]]) == False
+
+
+def test6():
+    soln = Solution()
+    assert soln.checkStraightLine([[98,0],[99,5000],[100,9999]]) == False
