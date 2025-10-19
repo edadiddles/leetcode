@@ -16,7 +16,7 @@ class Solution:
                 continue
 
             print(f"slope: {slope} -- m: {m}")
-            if slope != m:
+            if abs(slope[0] - m[0]) > 0.001 and abs(slope[1] - m[1]) > 0.001:
                 return False
 
         return True
