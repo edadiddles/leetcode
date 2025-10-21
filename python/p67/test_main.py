@@ -9,3 +9,8 @@ def test1():
 def test2():
     soln = Solution()
     assert soln.addBinary("1010", "1011") == "10101"
+
+
+def test3():
+    soln = Solution()
+    assert soln.addBinary("0", "0") == "0"

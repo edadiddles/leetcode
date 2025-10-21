@@ -30,4 +30,10 @@ class Solution:
 
             k -= 1
 
+        while output.startswith("0"):
+            if len(output) == 1:
+                break
+
+            output = output[1:]
+
         return output
