@@ -4,7 +4,9 @@ class Solution:
 
         sum = 0
         for k1, n1 in enumerate(list(num1.zfill(l))):
+            o1 = 10**(l-1-k1)
             for k2, n2 in enumerate(list(num2.zfill(l))):
-                sum += (int(n1) * 10**(l-1-k1)) * (int(n2) * 10**(l-1-k2))
+                o2 = 10**(l-1-k2)
+                sum += (int(n1) * o1) * (int(n2) * o2)
 
         return str(sum)
