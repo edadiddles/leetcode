@@ -7,7 +7,6 @@ class Solution:
         sum = 0
         for k1, n1 in enumerate(num1_arr):
             for k2, n2 in enumerate(num2_arr):
-                print(f"n1,k1: {n1},{k1} -- n2,k2: {n2},{k2}")
                 sum += (int(n1) * 10**k1) * (int(n2) * 10**k2)
 
         return str(sum)
