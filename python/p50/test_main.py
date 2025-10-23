@@ -20,3 +20,8 @@ def test3():
 def test4():
     soln = Solution()
     assert soln.myPow(0.00001, 2147483647) == approx(0.0)
+
+
+def test5():
+    soln = Solution()
+    assert soln.myPow(0.44528, 0) == approx(1.0)
