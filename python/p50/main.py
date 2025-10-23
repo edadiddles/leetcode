@@ -1,3 +1,6 @@
+import math
+
+
 class Solution:
     def myPow(self, x: float, n: int) -> float:
         inverse = False
@@ -5,13 +8,18 @@ class Solution:
             inverse = True
             n *= -1
 
-        pow = 1.0
-        while n > 0:
-            n -= 1
-            pow *= x
+        pow = self._pow(x, n)
 
         if inverse:
             pow = 1/pow
 
         return pow
 
+    def _pow(self, x: float, n: int) -> float:
+        if n == 1:
+            return x
+        elif n % 2 > 0:
+            return self._pow(x, n-1) * x
+
+        p = self._pow(x, math.ceil(n/2))
+        return p * p
