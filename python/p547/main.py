@@ -3,27 +3,27 @@ from typing import List
 
 class Solution:
     def findCircleNum(self, isConnected: List[List[int]]) -> int:
-        num_provinces = 0
-        for i in range(len(isConnected)):
-            for j in range(len(isConnected[i])):
-                if isConnected[i][j] == 1:
-                    print(f"walking for ({i},{j})")
-                    num_provinces += 1
-                    self.r_walk(isConnected, i, j)
+        n = len(isConnected)
+        nodes_visited = [0]*n
 
-                isConnected[i][j] = -1  # mark as visited
+        num_provinces = 0
+        for i in range(n):
+            if nodes_visited[i] == 1:
+                continue
+
+            num_provinces += 1
+            print(f"starting walk: {i}")
+            self.r_walk(isConnected, nodes_visited, i)
 
         return num_provinces
 
-    def r_walk(self, isConnected: List[List[int]], i: int, j: int):
-        dirs = [[1,0], [0,1], [-1,0], [0,-1]]
 
-        if i < 0 or j < 0 or i >= len(isConnected) or j >= len(isConnected[i]):
-            return
-        elif isConnected[i][j] in (-1, 0):
-            isConnected[i][j] = -1
-            return
+    def r_walk(self, isConnected: List[List[int]], nodes_visited: List[int], i: int):
+        nodes_visited[i] = 1
+        for j in range(len(isConnected[i])):
+            if nodes_visited[j] == 1:
+                continue
 
-        isConnected[i][j] = -1
-        for dir in dirs:
-            self.r_walk(isConnected, i+dir[0], j+dir[1])
+            if isConnected[i][j] == 1:
+                print(f"recursive walk: {j}")
+                self.r_walk(isConnected, nodes_visited, j)
