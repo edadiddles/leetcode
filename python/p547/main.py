@@ -7,6 +7,7 @@ class Solution:
         for i in range(len(isConnected)):
             for j in range(len(isConnected[i])):
                 if isConnected[i][j] == 1:
+                    print(f"walking for ({i},{j})")
                     num_provinces += 1
                     self.r_walk(isConnected, i, j)
 
@@ -20,8 +21,9 @@ class Solution:
         if i < 0 or j < 0 or i >= len(isConnected) or j >= len(isConnected[i]):
             return
         elif isConnected[i][j] in (-1, 0):
+            isConnected[i][j] = -1
             return
 
         isConnected[i][j] = -1
         for dir in dirs:
-            self.r_walk(isConnected, i+dir[0], j+dir[0])
+            self.r_walk(isConnected, i+dir[0], j+dir[1])
