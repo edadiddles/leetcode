@@ -3,16 +3,14 @@ from typing import List
 
 class Solution:
     def findCircleNum(self, isConnected: List[List[int]]) -> int:
-        n = len(isConnected)
-        nodes_visited = [0]*n
+        nodes_visited = [0]*len(isConnected)
 
         num_provinces = 0
-        for i in range(n):
+        for i in range(len(isConnected)):
             if nodes_visited[i] == 1:
                 continue
 
             num_provinces += 1
-            print(f"starting walk: {i}")
             self.r_walk(isConnected, nodes_visited, i)
 
         return num_provinces
@@ -25,5 +23,4 @@ class Solution:
                 continue
 
             if isConnected[i][j] == 1:
-                print(f"recursive walk: {j}")
                 self.r_walk(isConnected, nodes_visited, j)
