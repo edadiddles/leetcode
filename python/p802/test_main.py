@@ -9,3 +9,8 @@ def test1():
 def test2():
     soln = Solution()
     assert soln.eventualSafeNodes([[1,2,3,4], [1,2], [3,4], [0,4], []]) == [4]
+
+
+def test3():
+    soln = Solution()
+    assert soln.eventualSafeNodes([[], [0,2,3,4], [3], [4], []]) == [0, 1, 2, 3, 4]

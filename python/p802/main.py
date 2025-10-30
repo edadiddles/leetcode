@@ -10,11 +10,12 @@ class Solution:
                 print(f"node not safe: ({i})")
                 continue
 
-            visited_nodes = [0]*len(graph)
-            print(f"starting walk: {i}")
-            if not self.r_walk(graph, safe_nodes, visited_nodes, i):
-                print(f"walk not safe: ({i})")
-                safe_nodes[i] = 0
+            for j in range(len(graph[i])):
+                visited_nodes = [0]*len(graph)
+                print(f"starting walk: {i},{j}")
+                if not self.r_walk(graph, safe_nodes, visited_nodes, graph[i][j]):
+                    print(f"walk not safe: ({i})")
+                    safe_nodes[i] = 0
 
         return [idx for idx, val in enumerate(safe_nodes) if val == 1]
 
