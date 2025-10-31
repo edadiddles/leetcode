@@ -23,6 +23,7 @@ class Solution:
     def r_walk(self, graph: List[List[int]], safe_nodes: List[int], visited_nodes: List[int], node_idx: int):
         visited_nodes[node_idx] = 1
         for i in range(len(graph[node_idx])):
+            visited_nodes_cpy = visited_nodes.copy()
             if graph[node_idx][i] == node_idx:
                 print(f"graph[i]==node_idx: ({node_idx}, {i})")
                 safe_nodes[node_idx] = 0
@@ -31,11 +32,11 @@ class Solution:
                 print(f"safe_nodes[i] == 0: ({node_idx},{i})")
                 safe_nodes[node_idx] = 0
                 return False
-            elif visited_nodes[graph[node_idx][i]] == 1:
+            elif visited_nodes_cpy[graph[node_idx][i]] == 1:
                 print(f"visited_nodes[i] == 1: ({node_idx},{i})")
                 safe_nodes[i] = 0
                 return False
 
-            self.r_walk(graph, safe_nodes, visited_nodes, graph[node_idx][i])
+            self.r_walk(graph, safe_nodes, visited_nodes_cpy, graph[node_idx][i])
 
         return True
