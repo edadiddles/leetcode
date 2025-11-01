@@ -11,11 +11,9 @@ class Solution:
 
 
     def r_walk(self, n: int, depth: int, shortest_paths: List[int], primary_edges: List[List[int]], secondary_edges: List[List[int]]):
-        print(f"depth: {depth}, shortest_paths: {shortest_paths}, primary_edges: {primary_edges}, secondary_edges: {secondary_edges}")
-        if depth >= len(shortest_paths):
-            return
+        if shortest_paths[n] == -1 or depth < shortest_paths[n]:
+            shortest_paths[n] = depth
 
-        shortest_paths[n] = depth
         for i in range(len(primary_edges)):
             if primary_edges[i][0] != n:
                 continue
