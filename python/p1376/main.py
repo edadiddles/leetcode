@@ -3,20 +3,14 @@ from typing import List
 
 class Solution:
     def numOfMinutes(self, n: int, headID: int, manager: List[int], informTime: List[int]) -> int:
-        return self.r_walk(headID, informTime[headID], 0, manager, informTime)
+        self.r_walk(headID, informTime[headID], manager, informTime)
+        return max(informTime)
 
 
-    def r_walk(self, node: int, time: int, totalTime: int, manager: List[int], informTime: List[int]) -> int:
-        print(f"Node: {node}, Time: {time}, TotalTime: {totalTime}")
-        subordinates = [(i, informTime[i]) for i in range(len(manager)) if manager[i] == node]
-        subordinates.sort(key=lambda x: x[1], reverse=True)
-        if len(subordinates) == 0:
-            return time
+    def r_walk(self, node: int, time: int, manager: List[int], informTime: List[int]):
+        subordinates = [i for i in range(len(manager)) if manager[i] == node]
+        subordinates.sort(key=lambda x: informTime[x], reverse=True)
 
-        for (n, t) in subordinates:
-            print(f"{t} -- {n}")
-            informTime[n] = 0
-            if (tt := self.r_walk(n, time+t, totalTime, manager, informTime)) > totalTime:
-                totalTime = tt
-
-        return totalTime
+        for n in subordinates:
+            informTime[n] += time
+            self.r_walk(n, informTime[n], manager, informTime)
