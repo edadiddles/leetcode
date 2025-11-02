@@ -9,7 +9,6 @@ class Solution:
 
     def r_walk(self, node: int, time: int, manager: List[int], informTime: List[int]):
         subordinates = [i for i in range(len(manager)) if manager[i] == node]
-        subordinates.sort(key=lambda x: informTime[x], reverse=True)
 
         for n in subordinates:
             informTime[n] += time
